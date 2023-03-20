@@ -1,4 +1,54 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 /* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #333333;
+  --accent: #5F5566;
+  --accent-invert: #568EA3;
+}
+
+.hide {
+  display: none !important;
+}
+
+* {
+  font-family: Inter, serif;
+}
+
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, i.big {
+  padding: 20px;
+}
+
+i.big {
+  font-size: 4em;
+}
+
+:host .mat-raised-button {
+  font-size: 0.8em;
+  border-style: none;
+  border-radius: 0.7em !important;
+  padding: 1em 2em;
+}
+
+.hide {
+  display: none !important;
+}
+
+.card-failed {
+  background-color: #F8D7DA !important;
+  color: #92204B !important;
+}

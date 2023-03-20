@@ -1,6 +1,6 @@
 {
   "name": "webshop",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -18,11 +18,19 @@
     "@angular/platform-browser": "^15.0.0",
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
+    "@angular-material-components/datetime-picker": "^9.0.0",
+    "@angular/cdk": "^15.0.1",
+    "@angular/material": "^15.0.1",
+    "@auth0/angular-jwt": "^5.1.2",
+    "@types/crypto-js": "^4.1.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.12.0"
+    "zone.js": "~0.12.0",
+    "bootstrap-icons": "^1.10.2",
+    "crypto-js": "^4.1.1"
   },
   "devDependencies": {
+    "@schematics/angular": "^15.0.1",
     "@angular-devkit/build-angular": "^15.0.0",
     "@angular/cli": "~15.0.0",
     "@angular/compiler-cli": "^15.0.0",

@@ -1,0 +1,21 @@
+<section>
+  <button mat-flat-button routerLink="/home">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="house"></mat-icon>
+    Home
+  </button>
+  <button mat-flat-button routerLink="/account">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="account_circle"></mat-icon>
+    Account
+  </button>
+  <button mat-button *ngIf="hasAdminAuthority()" [matMenuTriggerFor]="adminMenu">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="dashboard"></mat-icon>
+    Admin Panel
+  </button>
+  <mat-menu #adminMenu="matMenu">
+    <button mat-menu-item routerLink="/admin/maintenance">Maintenance</button>
+  </mat-menu>
+  <button mat-flat-button (click)="logout()">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="exit_to_app"></mat-icon>
+    Logout
+  </button>
+</section>
