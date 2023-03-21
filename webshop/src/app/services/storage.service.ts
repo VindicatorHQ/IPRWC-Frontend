@@ -19,7 +19,6 @@ export class StorageService {
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 
-
   public saveType<T>(key: string, t: T): void {
     window.sessionStorage.setItem(key, JSON.stringify(t));
   }
@@ -35,5 +34,4 @@ export class StorageService {
   public clearStorage() {
     window.sessionStorage.clear()
   }
-
 }

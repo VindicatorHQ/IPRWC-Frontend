@@ -12,6 +12,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class BuildingFormComponent {
   public buildingForm: FormGroup;
   public title!: string;
+
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<BuildingFormComponent>,

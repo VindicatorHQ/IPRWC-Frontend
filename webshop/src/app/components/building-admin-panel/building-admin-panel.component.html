@@ -3,11 +3,11 @@
     <header>
       <h1>Edit buildings</h1>
     </header>
-    <button mat-raised-button color="primary" (click)="openForm()">Create Building</button>
+    <button (click)="openForm()" color="primary" mat-raised-button>Create Building</button>
   </section>
 
   <section>
-    <mat-grid-list [cols]="columns" rowHeight="3:1" (window:resize)="onResize()">
+    <mat-grid-list (window:resize)="onResize()" [cols]="columns" rowHeight="3:1">
       <section *ngFor="let building of buildings">
         <mat-grid-tile>
           <section>
@@ -21,9 +21,9 @@
               </mat-card-content>
 
               <mat-card-actions>
-                <button mat-raised-button color="primary" (click)="selectBuilding(building)">Select</button>
-                <button mat-raised-button color="accent" (click)="openForm(building)">Edit</button>
-                <button mat-raised-button color="warn" (click)="deleteBuilding(building)">Delete</button>
+                <button (click)="selectBuilding(building)" color="primary" mat-raised-button>Select</button>
+                <button (click)="openForm(building)" color="accent" mat-raised-button>Edit</button>
+                <button (click)="deleteBuilding(building)" color="warn" mat-raised-button>Delete</button>
               </mat-card-actions>
             </mat-card>
           </section>

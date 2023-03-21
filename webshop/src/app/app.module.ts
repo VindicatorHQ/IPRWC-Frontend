@@ -36,6 +36,14 @@ import {RoleGuard} from "./components/authentication/role.guard";
 import {AuthGuard} from "./components/authentication/auth.guard";
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {ProductComponent} from './components/product/product/product.component';
+import {CategoryComponent} from './components/category/category/category.component';
+import {ProductFormComponent} from './components/product/product-form/product-form.component';
+import {ProductAdminPanelComponent} from './components/product/product-admin-panel/product-admin-panel.component';
+import {CategoryAdminPanelComponent} from './components/category/category-admin-panel/category-admin-panel.component';
+import {CategoryFormComponent} from './components/category/category-form/category-form.component';
+import {ShoppingCartComponent} from './components/shopping-cart/shopping-cart.component';
+import {ProductOverviewComponent} from './components/product/product-overview/product-overview.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +52,15 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     AccountComponent,
     BuildingFormComponent,
     BuildingAdminPanelComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    ProductComponent,
+    CategoryComponent,
+    ProductFormComponent,
+    ProductAdminPanelComponent,
+    CategoryAdminPanelComponent,
+    CategoryFormComponent,
+    ShoppingCartComponent,
+    ProductOverviewComponent
   ],
   imports: [
     BrowserModule,

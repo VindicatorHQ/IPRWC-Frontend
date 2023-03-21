@@ -15,13 +15,15 @@ export class BuildingAdminPanelComponent {
   @Input() buildingId: string = "";
   @Output() selectedBuildingEvent = new EventEmitter<string>();
   selectedBuilding: BuildingInterface | null = null;
-  addBuildingIdToFloor(value: string) {
-    this.selectedBuildingEvent.emit(value);
-  }
   public buildings: BuildingInterface[] = [];
   public columns: number = 0;
+
   constructor(private buildingService: BuildingService, public dialog: MatDialog, private adminPanelService: AdminPanelService) {
     this.buildingService = buildingService;
+  }
+
+  addBuildingIdToFloor(value: string) {
+    this.selectedBuildingEvent.emit(value);
   }
 
   openForm(building?: BuildingInterface): void {

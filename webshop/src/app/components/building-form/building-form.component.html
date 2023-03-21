@@ -4,30 +4,30 @@
   </header>
 
   <section>
-    <form [formGroup]="buildingForm" (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()" [formGroup]="buildingForm">
       <section>
         <mat-form-field>
           <label for="name">Building Name: </label>
-          <input matInput id="name" type="text" formControlName="name" required>
+          <input formControlName="name" id="name" matInput required type="text">
         </mat-form-field>
         <mat-form-field>
           <label for="name">Building Zipcode: </label>
-          <input matInput id="zipcode" type="text" formControlName="zipcode" required>
+          <input formControlName="zipcode" id="zipcode" matInput required type="text">
         </mat-form-field>
         <mat-form-field>
           <label for="name">Building Address: </label>
-          <input matInput id="address" type="text" formControlName="address" required>
+          <input formControlName="address" id="address" matInput required type="text">
         </mat-form-field>
         <mat-form-field>
           <label for="name">Building City: </label>
-          <input matInput id="city" type="text" formControlName="city" required>
+          <input formControlName="city" id="city" matInput required type="text">
         </mat-form-field>
       </section>
 
       <section>
         <p>Complete the form to enable button.</p>
-        <button mat-raised-button type="button" color="warn" (click)="closeForm()">Cancel</button>
-        <button mat-raised-button type="submit" color="primary" [disabled]="!buildingForm.valid">Save</button>
+        <button (click)="closeForm()" color="warn" mat-raised-button type="button">Cancel</button>
+        <button [disabled]="!buildingForm.valid" color="primary" mat-raised-button type="submit">Save</button>
       </section>
     </form>
   </section>

@@ -3,19 +3,19 @@
     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="house"></mat-icon>
     Home
   </button>
-  <button mat-flat-button routerLink="/account" *ngIf="userLoggedIn()">
+  <button *ngIf="userLoggedIn()" mat-flat-button routerLink="/account">
     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="account_circle"></mat-icon>
     Account
   </button>
-  <button mat-button routerLink="/admin" *ngIf="hasAdminAuthority()">
+  <button *ngIf="hasAdminAuthority()" mat-button routerLink="/admin">
     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="dashboard"></mat-icon>
     Admin Panel
   </button>
-  <button mat-flat-button routerLink="/login" *ngIf="!userLoggedIn()">
+  <button *ngIf="!userLoggedIn()" mat-flat-button routerLink="/login">
     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="exit_to_app"></mat-icon>
     Login
   </button>
-  <button mat-flat-button (click)="logout()" *ngIf="userLoggedIn()">
+  <button (click)="logout()" *ngIf="userLoggedIn()" mat-flat-button>
     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="exit_to_app"></mat-icon>
     Logout
   </button>

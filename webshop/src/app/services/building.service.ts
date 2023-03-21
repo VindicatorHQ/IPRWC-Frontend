@@ -13,6 +13,16 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class BuildingService {
+  private buttonClicked = new BehaviorSubject<boolean>(false);
+  currentbuttonClicked$ = this.buttonClicked.asObservable();
+  private selectedBuilding = new BehaviorSubject<BuildingInterface>({
+    id: "",
+    zipcode: "",
+    city: "",
+    address: "",
+    name: ""
+  })
+  currentSelectedBuilding$ = this.selectedBuilding.asObservable();
 
   constructor(private http: HttpClient) {
   }
@@ -33,7 +43,6 @@ export class BuildingService {
     return this.http.delete(BUILDING_MAPPING + "/" + buildingId, {responseType: 'text'});
   }
 
-
   public updateBuilding(building: BuildingInterface): Observable<BuildingInterface> {
     return this.http.put<BuildingInterface>(BUILDING_MAPPING + "/" + building.id, building);
   }
@@ -42,26 +51,9 @@ export class BuildingService {
     return this.http.patch<BuildingInterface>(BUILDING_MAPPING + "/" + buildingId, buildingId);
   }
 
-
-  // moet in reservationservice staan uiteindelijk
-  private buttonClicked = new BehaviorSubject<boolean>(false);
-
-  currentbuttonClicked$ = this.buttonClicked.asObservable();
-
   sendButtonClicked(boolean: boolean): void {
     this.buttonClicked.next(boolean)
   }
-
-
-  private selectedBuilding = new BehaviorSubject<BuildingInterface>({
-    id: "",
-    zipcode: "",
-    city: "",
-    address: "",
-    name: ""
-  })
-
-  currentSelectedBuilding$ = this.selectedBuilding.asObservable();
 
   sendSelectedBuilding(building: BuildingInterface): void {
     this.selectedBuilding.next(building)
