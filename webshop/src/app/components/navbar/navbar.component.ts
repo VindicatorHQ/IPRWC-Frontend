@@ -15,11 +15,15 @@ export class NavbarComponent {
 
   logout() {
     this.storageService.clearStorage()
-    this.navigateToLogin()
+    this.navigateToHome()
   }
 
-  navigateToLogin(): void {
-    this.router.navigate(['login']).then();
+  navigateToHome(): void {
+    this.router.navigate(['home']).then();
+  }
+
+  userLoggedIn(): boolean {
+    return this.auth.isAuthenticated();
   }
 
   hasAdminAuthority(): boolean {

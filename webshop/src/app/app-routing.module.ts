@@ -25,8 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent,
-    canActivate: [AuthGuard]
+    component: HomeComponent
   },
   {
     path: 'account',
@@ -34,7 +33,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'admin/maintenance',
+    path: 'admin',
     component: AdminPanelComponent,
     canActivate: [AuthGuard, RoleGuard]
   },
