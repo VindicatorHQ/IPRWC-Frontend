@@ -11,6 +11,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatCardModule} from "@angular/material/card";
 import {JwtModule} from "@auth0/angular-jwt";
 import {getJWTToken} from "../../services/storage.service";
+import {AppRoutingModule} from "../../app-routing.module";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {getJWTToken} from "../../services/storage.service";
       config: {
         tokenGetter: getJWTToken
       },
-    })
+    }),
+    AppRoutingModule
   ]
 })
 export class AuthenticationModule {

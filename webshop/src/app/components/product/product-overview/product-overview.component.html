@@ -1,5 +1,5 @@
-<section *ngFor="let product of products">
-  <article class="py-12">
+<section class="grid md:grid-cols-3 mt-16 text-center">
+  <article class="flex flex-wrap pl-20" *ngFor="let product of products">
     <app-product [product]="product"></app-product>
   </article>
 </section>

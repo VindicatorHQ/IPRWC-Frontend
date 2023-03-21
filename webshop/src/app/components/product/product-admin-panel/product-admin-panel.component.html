@@ -1,31 +1,38 @@
 <article>
-  <section class="top-bar">
-    <header>
-      <h1>Edit Products</h1>
-    </header>
-    <button (click)="openForm()" class="bg-blue-600" mat-raised-button>Create Product</button>
-  </section>
+  <article>
+    <section class="text-center mt-16">
+      <header>
+        <h1>Edit Products</h1>
+      </header>
 
-  <section>
-    <mat-grid-list (window:resize)="onResize()" [cols]="columns">
-      <section *ngFor="let product of products">
-        <mat-grid-tile>
-          <mat-card>
-            <mat-card-header>
-              <h1>{{product.name}}</h1>
-            </mat-card-header>
+      <button (click)="openForm()" class="bg-blue-600" mat-raised-button>Create Product</button>
+    </section>
 
-            <img class="w-full" src="{{product.imageName}}" alt="product picture">
+    <section class="grid md:grid-cols-3 text-center">
+      <article class="flex pl-20 flex-wrap" *ngFor="let product of products">
+        <article class="max-w-sm rounded overflow-hidden shadow-lg">
+          <h1 class="font-bold text-xl mb-2">{{product.name}}</h1>
 
-            <mat-card-actions>
-              <button (click)="openForm(product)" class="inline-block bg-yellow-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Edit</button>
-              <button (click)="deleteProduct(product)" class="inline-block bg-red-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Delete</button>
-            </mat-card-actions>
-          </mat-card>
-        </mat-grid-tile>
-      </section>
-    </mat-grid-list>
-  </section>
+          <img alt="product image" class="w-full" src="{{product.imageName}}">
 
+          <article class="px-6 py-4 text-clip">
+            <p class="text-gray-700 text-base">
+              {{product.description}}
+            </p>
+          </article>
+
+          <article class="px-6 pt-4 pb-2">
+            <div class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Stock: {{product.stock}}</div>
+            <div class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Price: €{{product.price}}</div>
+          </article>
+
+          <article>
+            <button (click)="openForm(product)" class="inline-block bg-yellow-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Edit</button>
+            <button (click)="deleteProduct(product)" class="inline-block bg-red-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Delete</button>
+          </article>
+        </article>
+      </article>
+    </section>
+  </article>
 </article>
 

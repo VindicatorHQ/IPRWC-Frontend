@@ -14,17 +14,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --accent-invert: #568EA3;
 }
 
-.hide {
-  display: none !important;
-}
-
 * {
   font-family: Inter, serif;
 }
 
-html, body {
-  height: 100%;
-}
 body {
   margin: 0;
 }
@@ -42,6 +35,14 @@ i.big {
   border-style: none;
   border-radius: 0.7em !important;
   padding: 1em 2em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hide {
+  display: none !important;
 }
 
 .hide {
