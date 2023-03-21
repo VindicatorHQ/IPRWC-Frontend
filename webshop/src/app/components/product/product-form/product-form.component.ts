@@ -41,7 +41,6 @@ export class ProductFormComponent implements OnInit {
     this.productForm.controls['price'].setValue(this.product.price);
   }
 
-
   onSubmit(): void {
     if (!this.product.id) {
       this.createNewProduct();

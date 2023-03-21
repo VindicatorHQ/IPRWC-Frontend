@@ -1,1 +1,31 @@
+<article>
+  <section class="top-bar">
+    <header>
+      <h1>Edit Products</h1>
+    </header>
+    <button (click)="openForm()" class="bg-blue-600" mat-raised-button>Create Product</button>
+  </section>
+
+  <section>
+    <mat-grid-list (window:resize)="onResize()" [cols]="columns">
+      <section *ngFor="let product of products">
+        <mat-grid-tile>
+          <mat-card>
+            <mat-card-header>
+              <h1>{{product.name}}</h1>
+            </mat-card-header>
+
+            <img class="w-full" src="{{product.imageName}}" alt="product picture">
+
+            <mat-card-actions>
+              <button (click)="openForm(product)" class="inline-block bg-yellow-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Edit</button>
+              <button (click)="deleteProduct(product)" class="inline-block bg-red-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Delete</button>
+            </mat-card-actions>
+          </mat-card>
+        </mat-grid-tile>
+      </section>
+    </mat-grid-list>
+  </section>
+
+</article>
 
