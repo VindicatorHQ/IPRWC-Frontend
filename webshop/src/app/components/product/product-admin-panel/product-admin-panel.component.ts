@@ -1,9 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {HttpErrorResponse} from "@angular/common/http";
 import {ProductInterface} from "../../../models/product.interface";
 import {ProductService} from "../../../services/product.service";
 import {ProductFormComponent} from "../product-form/product-form.component";
+import {CategoryInterface} from "../../../models/category.interface";
+import {AdminPanelService} from "../../../services/admin-panel.service";
 
 @Component({
   selector: 'app-product-admin-panel',
@@ -11,11 +13,13 @@ import {ProductFormComponent} from "../product-form/product-form.component";
   styleUrls: ['./product-admin-panel.component.css']
 })
 export class ProductAdminPanelComponent implements OnInit {
-  @Input() productId: string = "";
+  @Input() categoryId: string = "";
+  @Output() selectedProductEvent = new EventEmitter<string>();
+  selectedCategory: CategoryInterface | null = null;
   public products: ProductInterface[] = [];
-  public columns: number = 0;
+  public categories: CategoryInterface[] = [];
 
-  constructor(private productService: ProductService, public dialog: MatDialog) {
+  constructor(private productService: ProductService, public dialog: MatDialog, private adminPanelService: AdminPanelService) {
     this.productService = productService;
   }
 
@@ -27,30 +31,37 @@ export class ProductAdminPanelComponent implements OnInit {
         imageName: product?.imageName,
         description: product?.description,
         stock: product?.stock,
-        price: product?.price
+        price: product?.price,
+        categoryId: this.selectedCategory?.id
       },
     });
 
     productForm.afterClosed().subscribe(() => {
-      this.getAllProducts();
+      this.getProductsFromCategory();
     })
   }
 
-  public getAllProducts(): void {
-    this.productService.getAllProducts().subscribe(
+  public getProductsFromCategory(): void {
+    if (this.selectedCategory == null) {
+      this.products = [];
+
+      return;
+    }
+
+    this.productService.getProductsByCategory(this.selectedCategory.id).subscribe(
       (response: ProductInterface[]) => {
         this.products = response;
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
-    );
+    )
   }
 
   public deleteProduct(product: ProductInterface): void {
     this.productService.deleteProduct(product.id).subscribe(
       () => {
-        this.getAllProducts();
+        this.getProductsFromCategory();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -58,25 +69,18 @@ export class ProductAdminPanelComponent implements OnInit {
     );
   }
 
-  calculateBreakpoint(): void {
-    switch (true) {
-      case (window.innerWidth <= 640):
-        this.columns = 1;
-        break;
-      case (window.innerWidth > 640 && window.innerWidth <= 1024):
-        this.columns = 2;
-        break;
-      default:
-        this.columns = 3;
-    }
-  }
-
   ngOnInit(): void {
-    this.getAllProducts();
-    this.calculateBreakpoint();
+    this.getProductsFromCategory();
+    this.adminPanelService.categorySubject.subscribe(
+      (response: CategoryInterface | null) => {
+        this.selectCategory(response);
+      }
+    )
   }
 
-  onResize(): void {
-    this.calculateBreakpoint()
+  selectCategory(category: CategoryInterface | null) {
+    this.selectedCategory = category;
+    this.adminPanelService.selectProduct(null);
+    this.getProductsFromCategory();
   }
 }

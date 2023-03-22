@@ -7,15 +7,16 @@ import {Router} from "@angular/router";
   styleUrls: ['./admin-panel.component.scss']
 })
 export class AdminPanelComponent {
-  currentBuildingId = "";
+  currentCategoryId = "";
   router: Router;
 
   constructor(router: Router) {
     this.router = router;
   }
 
-  addBuildingId(newBuildingId: string) {
-    this.currentBuildingId = newBuildingId;
+  addCategoryId(newCategoryId: string) {
+    console.log(this.currentCategoryId)
+    this.currentCategoryId = newCategoryId;
+    console.log(newCategoryId)
   }
-
 }

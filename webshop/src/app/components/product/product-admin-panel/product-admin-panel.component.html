@@ -5,7 +5,10 @@
         <h1>Edit Products</h1>
       </header>
 
-      <button (click)="openForm()" class="bg-blue-600" mat-raised-button>Create Product</button>
+      <p *ngIf="selectedCategory == null">No category selected</p>
+      <p *ngIf="selectedCategory != null">Category: {{selectedCategory.name}}</p>
+
+      <button [disabled]="selectedCategory == null" (click)="openForm()" class="inline-block bg-blue-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Create Product</button>
     </section>
 
     <section class="grid md:grid-cols-3 text-center">

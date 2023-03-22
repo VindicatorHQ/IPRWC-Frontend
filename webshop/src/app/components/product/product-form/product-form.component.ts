@@ -24,6 +24,7 @@ export class ProductFormComponent implements OnInit {
       description: string;
       stock: number;
       price: number;
+      categoryId: string;
     }
   ) {
     this.productForm = this.formBuilder.group({
@@ -32,6 +33,7 @@ export class ProductFormComponent implements OnInit {
       description: "",
       stock: "",
       price: "",
+      categoryId: ""
     })
 
     this.productForm.controls['name'].setValue(this.product.name);
@@ -39,6 +41,7 @@ export class ProductFormComponent implements OnInit {
     this.productForm.controls['description'].setValue(this.product.description);
     this.productForm.controls['stock'].setValue(this.product.stock);
     this.productForm.controls['price'].setValue(this.product.price);
+    this.productForm.controls['categoryId'].setValue(this.product.categoryId);
   }
 
   onSubmit(): void {
@@ -57,6 +60,7 @@ export class ProductFormComponent implements OnInit {
       description: this.productForm.get('description')?.value,
       stock: this.productForm.get('stock')?.value,
       price: this.productForm.get('price')?.value,
+      categoryId: this.product.categoryId
     }).subscribe(
       () => {
         this.closeForm()
@@ -76,6 +80,7 @@ export class ProductFormComponent implements OnInit {
         description: this.productForm.get('description')?.value,
         stock: this.productForm.get('stock')?.value,
         price: this.productForm.get('price')?.value,
+        categoryId: this.product.categoryId
       }
     ).subscribe(
       () => {

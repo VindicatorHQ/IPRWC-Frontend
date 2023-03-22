@@ -13,7 +13,8 @@ export class ProductComponent{
     imageName: "",
     description: "",
     stock: 0,
-    price: 0
+    price: 0,
+    categoryId: ""
   }
 
   constructor() {

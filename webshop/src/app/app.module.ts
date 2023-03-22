@@ -24,8 +24,6 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatListModule} from "@angular/material/list";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {AdminPanelComponent} from './components/admin-panel/admin-panel.component';
-import {BuildingFormComponent} from "./components/building-form/building-form.component";
-import {BuildingAdminPanelComponent} from "./components/building-admin-panel/building-admin-panel.component";
 import {MatSelectModule} from "@angular/material/select";
 import {AuthenticationModule} from "./components/authentication/authentication.module";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
@@ -50,8 +48,6 @@ import {ProductOverviewComponent} from './components/product/product-overview/pr
     AppComponent,
     HomeComponent,
     AccountComponent,
-    BuildingFormComponent,
-    BuildingAdminPanelComponent,
     AdminPanelComponent,
     ProductComponent,
     CategoryComponent,

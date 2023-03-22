@@ -1,1 +1,27 @@
-<p>category-admin-panel works!</p>
+<article>
+  <article>
+    <section class="text-center mt-16">
+      <header>
+        <h1>Edit Categories</h1>
+      </header>
+
+      <button (click)="openForm()" class="inline-block bg-blue-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Create Category</button>
+    </section>
+
+    <section class="grid md:grid-cols-3 text-center">
+      <article class="flex pl-20 flex-wrap" *ngFor="let category of categories">
+        <article class="max-w-sm rounded overflow-hidden shadow-lg">
+          <h1 class="font-bold text-xl mb-2">{{category.name}}</h1>
+
+          <article>
+            <button (click)="selectCategory(category)" class="inline-block bg-blue-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Select</button>
+            <button (click)="openForm(category)" class="inline-block bg-yellow-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Edit</button>
+            <button (click)="deleteCategory(category)" class="inline-block bg-red-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Delete</button>
+          </article>
+        </article>
+      </article>
+    </section>
+  </article>
+</article>
+
+
