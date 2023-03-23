@@ -30,26 +30,10 @@ i.big {
   font-size: 4em;
 }
 
-:host .mat-raised-button {
-  font-size: 0.8em;
-  border-style: none;
-  border-radius: 0.7em !important;
-  padding: 1em 2em;
-}
-
 .text-center {
   text-align: center;
 }
 
 .hide {
   display: none !important;
-}
-
-.hide {
-  display: none !important;
-}
-
-.card-failed {
-  background-color: #F8D7DA !important;
-  color: #92204B !important;
 }

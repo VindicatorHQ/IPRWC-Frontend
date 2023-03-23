@@ -13,6 +13,7 @@ import {AdminPanelComponent} from "./components/admin-panel/admin-panel.componen
 import {AccountComponent} from "./components/account/account.component";
 import {AuthGuard} from "./components/authentication/auth.guard";
 import {RoleGuard} from "./components/authentication/role.guard";
+import {ShoppingCartComponent} from "./components/shopping-cart/shopping-cart.component";
 
 const routes: Routes = [
   {
@@ -30,6 +31,11 @@ const routes: Routes = [
   {
     path: 'account',
     component: AccountComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'cart',
+    component: ShoppingCartComponent,
     canActivate: [AuthGuard]
   },
   {

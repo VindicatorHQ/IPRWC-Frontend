@@ -17,10 +17,18 @@ export class ProductComponent{
     categoryId: ""
   }
 
+  public products: ProductInterface[] = [];
+
   constructor() {
   }
 
   public addToShoppingCart() {
+    this.products.push(this.product);
 
+    if (localStorage.getItem(this.product.id)) {
+      return alert("This meme is already in your shopping cart!");
+    }
+
+    localStorage.setItem(this.product.id, JSON.stringify(this.products));
   }
 }

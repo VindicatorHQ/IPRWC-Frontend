@@ -15,8 +15,6 @@ export class AdminPanelComponent {
   }
 
   addCategoryId(newCategoryId: string) {
-    console.log(this.currentCategoryId)
     this.currentCategoryId = newCategoryId;
-    console.log(newCategoryId)
   }
 }
