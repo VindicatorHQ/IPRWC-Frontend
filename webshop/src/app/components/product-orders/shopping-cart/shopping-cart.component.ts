@@ -26,6 +26,11 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   pushProductsToProductOrder(removal?: boolean): void {
+    if (removal) {
+      this.router.navigate(['/home']).then();
+      alert("Meme has been removed from the shopping cart!");
+    }
+
     if (this.productOrder.length > 0) {
       this.productOrder = [];
     }
