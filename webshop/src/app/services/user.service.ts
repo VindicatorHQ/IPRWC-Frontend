@@ -26,12 +26,4 @@ export class UserService {
   public getCurrentUser(): UserInterface {
     return <UserInterface>this.storage.getType(CURRENT_USER_KEY);
   }
-
-  public getAllUsers(): Observable<UserInterface[]> {
-    return this.http.get<UserInterface[]>(USER_MAPPING);
-  }
-
-  public getUserById(userId: string): Observable<UserInterface[]> {
-    return this.http.get<UserInterface[]>(USER_MAPPING + "/" + userId);
-  }
 }

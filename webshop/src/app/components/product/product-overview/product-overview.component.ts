@@ -71,4 +71,8 @@ export class ProductOverviewComponent implements OnInit {
     this.selectionService.selectProduct(null);
     this.getProducts();
   }
+
+  searchedProducts(resultProducts: ProductInterface[]) {
+    this.products = resultProducts;
+  }
 }

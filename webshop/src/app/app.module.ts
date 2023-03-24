@@ -43,6 +43,7 @@ import {ShoppingCartComponent} from './components/product-orders/shopping-cart/s
 import {ProductOverviewComponent} from './components/product/product-overview/product-overview.component';
 import { CategorySelectComponent } from './components/category/category-select/category-select.component';
 import { ProductOrderComponent } from './components/product-orders/product-order/product-order.component';
+import { ProductSearchComponent } from './components/product/product-search/product-search.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ProductOrderComponent } from './components/product-orders/product-order
     ShoppingCartComponent,
     ProductOverviewComponent,
     CategorySelectComponent,
-    ProductOrderComponent
+    ProductOrderComponent,
+    ProductSearchComponent
   ],
   imports: [
     BrowserModule,

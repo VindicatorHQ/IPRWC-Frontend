@@ -30,18 +30,6 @@ export class ShoppingCartService {
     return this.http.post<ProductOrderInterface>(PRODUCT_ORDER_MAPPING, productOrder, httpOptions);
   }
 
-  public getAllProductOrders(): Observable<ProductOrderInterface[]> {
-    return this.http.get<ProductOrderInterface[]>(PRODUCT_ORDER_MAPPING);
-  }
-
-  public getProductOrderById(productOrderId: string): Observable<ProductOrderInterface> {
-    return this.http.get<ProductOrderInterface>(PRODUCT_ORDER_MAPPING + "/" + productOrderId);
-  }
-
-  public updateProductOrder(productOrder: ProductOrderInterface): Observable<ProductOrderInterface> {
-    return this.http.put<ProductOrderInterface>(PRODUCT_ORDER_MAPPING + "/" + productOrder.id, productOrder);
-  }
-
   public deleteProductOrder(productOrderId: string): Observable<String> {
     return this.http.delete(PRODUCT_ORDER_MAPPING + "/" + productOrderId, {responseType: 'text'});
   }
