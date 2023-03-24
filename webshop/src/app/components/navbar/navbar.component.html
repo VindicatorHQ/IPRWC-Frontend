@@ -1,0 +1,45 @@
+<nav
+  class="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+  <div class="container flex flex-wrap items-center justify-between mx-auto">
+    <a class="flex items-center" href="">
+      <img alt="Webshop logo" class="h-6 mr-3 sm:h-9" src="../../../assets/Webshop_logo.jpg">
+      <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Webshop Le Meme</span>
+    </a>
+
+    <div class="flex sm:order-2">
+      <button *ngIf="!userLoggedIn()" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 sm:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" routerLink="/login"
+              type="button">
+        Login
+      </button>
+
+      <button (click)="logout()" *ngIf="userLoggedIn()" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 sm:mr-0 dark:bg-blue-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+              type="button">
+        Logout
+      </button>
+    </div>
+
+    <div class="items-center justify-between hidden w-full sm:flex sm:w-auto sm:order-1" id="navbar-sticky">
+      <ul
+        class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 sm:flex-row sm:space-x-8 sm:mt-0 sm:text-sm sm:font-medium sm:border-0 sm:bg-white dark:bg-gray-800 sm:dark:bg-gray-900 dark:border-gray-700">
+        <li>
+          <a class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded sm:bg-transparent sm:text-blue-700 sm:p-0 dark:text-white"
+             href="/home">Home</a>
+        </li>
+        <li *ngIf="userLoggedIn()">
+          <a class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 sm:hover:bg-transparent sm:hover:text-blue-700 sm:p-0 sm:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white sm:dark:hover:bg-transparent dark:border-gray-700"
+             href="/account">Account</a>
+        </li>
+        <li *ngIf="userLoggedIn()">
+          <a class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 sm:hover:bg-transparent sm:hover:text-blue-700 sm:p-0 sm:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white sm:dark:hover:bg-transparent dark:border-gray-700"
+             href="/cart">Shopping
+            Cart</a>
+        </li>
+        <li *ngIf="hasAdminAuthority()">
+          <a class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 sm:hover:bg-transparent sm:hover:text-blue-700 sm:p-0 sm:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white sm:dark:hover:bg-transparent dark:border-gray-700"
+             href="/admin">Admin</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+

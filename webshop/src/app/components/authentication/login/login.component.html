@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+
+<div class="form-container">
+  <div class="bg-img"></div>
+
+  <mat-card>
+    <mat-card-content>
+      <h1>Welcome!</h1>
+      <div (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="w-full max-w-xs">
+        <form class="shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+              Email
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              formControlName="email" id="email" matInput required type="email">
+            <mat-error *ngIf="email.hasError('email')">Not a valid email.</mat-error>
+            <mat-error *ngIf="email.hasError('required')">You must enter an email address.</mat-error>
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+              Password
+            </label>
+            <input
+              [type]="hide ? 'password' : 'text'"
+              class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" formControlName="password" id="password" matInput placeholder="******************"
+              required type="password">
+            <button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"
+                    mat-icon-button matSuffix type="button">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="password.hasError('required')">You must enter a password</mat-error>
+          </div>
+
+          <div class="flex items-center justify-between">
+            <button [disabled]="!loginForm.valid"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded focus:outline-none focus:shadow-outline"
+                    type="submit">
+              Login
+            </button>
+
+            <button
+              class="bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <a href="/register">Sign up</a>
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>
+

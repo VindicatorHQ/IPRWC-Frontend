@@ -1,0 +1,5 @@
+<section class="grid md:grid-cols-3 mt-6 text-center">
+  <article *ngFor="let product of products" class="flex flex-wrap pl-20 pt-4">
+    <app-product [product]="product"></app-product>
+  </article>
+</section>

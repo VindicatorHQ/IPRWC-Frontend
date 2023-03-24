@@ -1,0 +1,5 @@
+<app-navbar></app-navbar>
+<app-category-admin-panel (selectedCategoryEvent)="addCategoryId($event)"></app-category-admin-panel>
+
+<app-product-admin-panel [categoryId]="currentCategoryId"></app-product-admin-panel>
+
