@@ -33,10 +33,6 @@ export class ProductService {
     return this.http.get<ProductInterface[]>(PRODUCT_MAPPING);
   }
 
-  public getProductById(productId: string): Observable<ProductInterface> {
-    return this.http.get<ProductInterface>(PRODUCT_MAPPING + "/" + productId);
-  }
-
   public updateProduct(product: ProductInterface): Observable<ProductInterface> {
     return this.http.put<ProductInterface>(PRODUCT_MAPPING + "/" + product.id, product);
   }

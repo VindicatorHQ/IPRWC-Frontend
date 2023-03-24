@@ -5,7 +5,7 @@ import {ProductInterface} from "../../../models/product.interface";
 import {ProductService} from "../../../services/product.service";
 import {ProductFormComponent} from "../product-form/product-form.component";
 import {CategoryInterface} from "../../../models/category.interface";
-import {AdminPanelService} from "../../../services/admin-panel.service";
+import {SelectionService} from "../../../services/selection.service";
 
 @Component({
   selector: 'app-product-admin-panel',
@@ -19,7 +19,7 @@ export class ProductAdminPanelComponent implements OnInit {
   public products: ProductInterface[] = [];
   public categories: CategoryInterface[] = [];
 
-  constructor(private productService: ProductService, public dialog: MatDialog, private adminPanelService: AdminPanelService) {
+  constructor(private productService: ProductService, public dialog: MatDialog, private selectionService: SelectionService) {
     this.productService = productService;
   }
 
@@ -71,16 +71,16 @@ export class ProductAdminPanelComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductsFromCategory();
-    this.adminPanelService.categorySubject.subscribe(
+    this.selectionService.categorySubject.subscribe(
       (response: CategoryInterface | null) => {
         this.selectCategory(response);
       }
-    )
+    );
   }
 
   selectCategory(category: CategoryInterface | null) {
     this.selectedCategory = category;
-    this.adminPanelService.selectProduct(null);
+    this.selectionService.selectProduct(null);
     this.getProductsFromCategory();
   }
 }

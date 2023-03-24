@@ -36,7 +36,6 @@ export class LoginComponent {
       hashedPassword
     ).then(() => {
       this.router.navigate(['/home']).then();
-      this.snackBar.open("Logged in succesfully!", 'Dismiss', {duration: 6000});
       this.loginForm.reset();
     });
   }

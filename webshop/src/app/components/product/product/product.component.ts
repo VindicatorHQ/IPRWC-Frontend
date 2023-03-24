@@ -25,8 +25,8 @@ export class ProductComponent{
   public addToShoppingCart() {
     this.products.push(this.product);
 
-    if (localStorage.getItem(this.product.id)) {
-      return alert("This meme is already in your shopping cart!");
+    if (localStorage.length > 0) {
+      return alert("You have already added a meme to your cart, please checkout first!");
     }
 
     localStorage.setItem(this.product.id, JSON.stringify(this.products));

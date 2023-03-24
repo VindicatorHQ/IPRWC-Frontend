@@ -58,7 +58,6 @@ export class RegisterComponent implements OnInit {
       hashedPassword
     ).then(() => {
       this.router.navigate(['/login']).then();
-      this.snackBar.open("Signed up succesfully! A confirmation link has been sent to your email address.", 'Dismiss', {duration: 6000});
       this.registerForm.reset();
     });
   }

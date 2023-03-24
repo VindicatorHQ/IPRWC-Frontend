@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ShoppingCartService} from "../../services/shopping-cart.service";
-import {UserService} from "../../services/user.service";
-import {ProductInterface} from "../../models/product.interface";
+import {ShoppingCartService} from "../../../services/shopping-cart.service";
+import {UserService} from "../../../services/user.service";
+import {ProductInterface} from "../../../models/product.interface";
 import {Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {HttpErrorResponse} from "@angular/common/http";
@@ -16,7 +16,7 @@ export class ShoppingCartComponent implements OnInit {
   public productOrder: ProductInterface[];
   public productIds: string[];
 
-  constructor(private shoppingCartService: ShoppingCartService, private userService: UserService, private router: Router, private snackBar: MatSnackBar) {
+  constructor(private shoppingCartService: ShoppingCartService, private userService: UserService, private router: Router) {
     this.products = [];
     this.productIds = [];
     this.productOrder = [];
@@ -34,11 +34,9 @@ export class ShoppingCartComponent implements OnInit {
     let keys = Object.keys(localStorage);
 
     for (let i = 0; i < keys.length; i++) {
-      if (localStorage.getItem(keys[i]) !== "honey:core-sdk:*"){
-        this.products.push(
-          JSON.parse(localStorage.getItem(keys[i]) || '{}')
-        );
-      }
+      this.products.push(
+        JSON.parse(localStorage.getItem(keys[i]) || '{}')
+      );
     }
 
     for (let i = 0; i < this.products.length; i++) {
@@ -68,14 +66,13 @@ export class ShoppingCartComponent implements OnInit {
     this.shoppingCartService.createProductOrder({
       id: "",
       date: this.getCurrentDate(),
-      // productId: this.productIds,
-      productId: "b7ddde82-4d50-4bc6-bc8f-85578332cd91",
+      productId: this.productIds[0],
       userId: this.userService.getCurrentUser().id
     }).subscribe(
       () => {
         localStorage.clear();
         this.router.navigate(['/home']).then();
-        this.snackBar.open("Your order has been placed!", 'Dismiss', {duration: 6000});
+        alert("Your order has been placed!");
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

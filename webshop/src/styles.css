@@ -37,3 +37,8 @@ i.big {
 .hide {
   display: none !important;
 }
+
+.card-container {
+  display: flex;
+  justify-content: center;
+}

@@ -5,19 +5,19 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   providedIn: 'root'
 })
 export class GlobalErrorHandler implements ErrorHandler {
-  constructor(private snackBar: MatSnackBar) {
+  constructor() {
   }
 
   handleError(error: any) {
     switch (error.status) {
       case 401:
-        this.snackBar.open("Invalid login credentials", 'Dismiss', {duration: 3000});
+        alert("Invalid login credentials")
         break;
       case 409:
-        this.snackBar.open("User with that email already exists.", 'Dismiss', {duration: 3000});
+        alert("User with that email already exists.")
         break;
       default:
-        this.snackBar.open("An unexpected error occurred. Please try again later", 'Dismiss', {duration: 3000});
+        alert("An unexpected error occurred. Please try again later")
     }
   }
 }

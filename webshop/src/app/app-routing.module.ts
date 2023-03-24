@@ -13,7 +13,7 @@ import {AdminPanelComponent} from "./components/admin-panel/admin-panel.componen
 import {AccountComponent} from "./components/account/account.component";
 import {AuthGuard} from "./components/authentication/auth.guard";
 import {RoleGuard} from "./components/authentication/role.guard";
-import {ShoppingCartComponent} from "./components/shopping-cart/shopping-cart.component";
+import {ShoppingCartComponent} from "./components/product-orders/shopping-cart/shopping-cart.component";
 
 const routes: Routes = [
   {
