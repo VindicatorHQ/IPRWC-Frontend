@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductOrderInterface} from "../../../models/product-order.interface";
-import {ProductInterface} from "../../../models/product.interface";
 import {HttpErrorResponse} from "@angular/common/http";
 import {ShoppingCartService} from "../../../services/shopping-cart.service";
 
@@ -11,8 +10,10 @@ import {ShoppingCartService} from "../../../services/shopping-cart.service";
 })
 export class ProductOrderComponent implements OnInit {
   public productOrders: ProductOrderInterface[] = [];
+
   constructor(private productOrderService: ShoppingCartService) {
   }
+
   ngOnInit(): void {
     this.getOrdersFromUser();
   }

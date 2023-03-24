@@ -41,9 +41,9 @@ import {CategoryAdminPanelComponent} from './components/category/category-admin-
 import {CategoryFormComponent} from './components/category/category-form/category-form.component';
 import {ShoppingCartComponent} from './components/product-orders/shopping-cart/shopping-cart.component';
 import {ProductOverviewComponent} from './components/product/product-overview/product-overview.component';
-import { CategorySelectComponent } from './components/category/category-select/category-select.component';
-import { ProductOrderComponent } from './components/product-orders/product-order/product-order.component';
-import { ProductSearchComponent } from './components/product/product-search/product-search.component';
+import {CategorySelectComponent} from './components/category/category-select/category-select.component';
+import {ProductOrderComponent} from './components/product-orders/product-order/product-order.component';
+import {ProductSearchComponent} from './components/product/product-search/product-search.component';
 
 @NgModule({
   declarations: [

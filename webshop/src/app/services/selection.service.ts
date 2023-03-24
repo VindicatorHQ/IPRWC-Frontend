@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Subject} from "rxjs";
 import {CategoryInterface} from "../models/category.interface";
 import {ProductInterface} from "../models/product.interface";

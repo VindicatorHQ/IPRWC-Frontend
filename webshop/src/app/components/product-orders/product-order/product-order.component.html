@@ -1,5 +1,5 @@
 <section class="grid md:grid-cols-3 text-center">
-  <article class="flex pl-20 flex-wrap" *ngFor="let order of productOrders">
+  <article *ngFor="let order of productOrders" class="flex pl-20 flex-wrap">
     <article class="max-w-sm rounded overflow-hidden shadow-lg">
       <h1 class="font-bold text-xl mb-2">Order Id: {{order.id}}</h1>
 
@@ -10,7 +10,10 @@
       </article>
 
       <article>
-        <button (click)="cancelOrder(order)" class="inline-block bg-red-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Delete</button>
+        <button (click)="cancelOrder(order)"
+                class="inline-block bg-red-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+          Delete
+        </button>
       </article>
     </article>
   </article>

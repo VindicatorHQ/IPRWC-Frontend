@@ -4,6 +4,7 @@ import {ProductService} from "../../../services/product.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {CategoryInterface} from "../../../models/category.interface";
 import {SelectionService} from "../../../services/selection.service";
+import {SearchService} from "../../../services/search.service";
 
 @Component({
   selector: 'app-product-overview',
@@ -12,12 +13,12 @@ import {SelectionService} from "../../../services/selection.service";
 })
 export class ProductOverviewComponent implements OnInit {
   @Input() categoryId: string = "";
+  @Input() searchedProducts: ProductInterface[] = []
   @Output() selectedProductEvent = new EventEmitter<string>();
   selectedCategory: CategoryInterface | null = null;
-  public products: ProductInterface[] = [];
-  public categories: CategoryInterface[] = [];
+  public products: ProductInterface[] | null = [];
 
-  constructor(private productService: ProductService, private selectionService: SelectionService) {
+  constructor(private productService: ProductService, private selectionService: SelectionService, private searchService: SearchService) {
     this.productService = productService;
   }
 
@@ -27,6 +28,32 @@ export class ProductOverviewComponent implements OnInit {
     } else {
       this.getAllProducts()
     }
+  }
+
+  ngOnInit(): void {
+    this.getProducts();
+
+    this.searchService.productSubject.subscribe(
+      (response: ProductInterface[] | null) => {
+        this.searchProducts(response);
+      }
+    );
+
+    this.selectionService.categorySubject.subscribe(
+      (response: CategoryInterface | null) => {
+        this.selectCategory(response);
+      }
+    );
+  }
+
+  searchProducts(products: ProductInterface[] | null) {
+    this.products = products;
+  }
+
+  selectCategory(category: CategoryInterface | null) {
+    this.selectedCategory = category;
+    this.selectionService.selectProduct(null);
+    this.getProducts();
   }
 
   private getAllProducts() {
@@ -55,24 +82,5 @@ export class ProductOverviewComponent implements OnInit {
         alert(error.message);
       }
     );
-  }
-
-  ngOnInit(): void {
-    this.getProducts();
-    this.selectionService.categorySubject.subscribe(
-      (response: CategoryInterface | null) => {
-        this.selectCategory(response);
-      }
-    );
-  }
-
-  selectCategory(category: CategoryInterface | null) {
-    this.selectedCategory = category;
-    this.selectionService.selectProduct(null);
-    this.getProducts();
-  }
-
-  searchedProducts(resultProducts: ProductInterface[]) {
-    this.products = resultProducts;
   }
 }

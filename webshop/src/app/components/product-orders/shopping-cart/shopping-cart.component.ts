@@ -3,7 +3,6 @@ import {ShoppingCartService} from "../../../services/shopping-cart.service";
 import {UserService} from "../../../services/user.service";
 import {ProductInterface} from "../../../models/product.interface";
 import {Router} from "@angular/router";
-import {MatSnackBar} from "@angular/material/snack-bar";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({

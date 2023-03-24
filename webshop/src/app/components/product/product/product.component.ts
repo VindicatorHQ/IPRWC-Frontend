@@ -6,7 +6,7 @@ import {ProductInterface} from "../../../models/product.interface";
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent{
+export class ProductComponent {
   @Input() product: ProductInterface = {
     id: "",
     name: "",

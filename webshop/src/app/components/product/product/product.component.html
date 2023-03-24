@@ -9,8 +9,12 @@
   </article>
 
   <article class="px-6 pt-4 pb-2">
-    <div class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Stock: {{product.stock}}</div>
-    <div class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Price: €{{product.price}}</div>
-    <button class="inline-block bg-yellow-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" (click)="addToShoppingCart()">Buy</button>
+    <div class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+      Stock: {{product.stock}}</div>
+    <div class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Price:
+      €{{product.price}}</div>
+    <button (click)="addToShoppingCart()"
+            class="inline-block bg-yellow-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Buy
+    </button>
   </article>
 </article>

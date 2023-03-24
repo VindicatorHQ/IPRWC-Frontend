@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
+import {ProductInterface} from "../../models/product.interface";
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,7 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent {
   currentCategoryId = "";
+  products: ProductInterface[] = [];
   router: Router;
 
   constructor(router: Router) {
@@ -16,5 +18,9 @@ export class HomeComponent {
 
   addCategoryId(newCategoryId: string) {
     this.currentCategoryId = newCategoryId;
+  }
+
+  searchedProducts(resultProducts: ProductInterface[]) {
+    this.products = resultProducts;
   }
 }

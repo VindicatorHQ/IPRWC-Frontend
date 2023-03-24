@@ -3,8 +3,6 @@ import {CategoryInterface} from "../../../models/category.interface";
 import {SelectionService} from "../../../services/selection.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {CategoryService} from "../../../services/category.service";
-import {ProductService} from "../../../services/product.service";
-import {coerceStringArray} from "@angular/cdk/coercion";
 
 @Component({
   selector: 'app-category-select',
@@ -32,17 +30,6 @@ export class CategorySelectComponent implements OnInit {
     );
   }
 
-  private getCategoryById(categoryId: string) {
-    this.categoryService.getCategoryById(categoryId).subscribe(
-      (response: CategoryInterface) => {
-        this.selectionService.selectCategory(response);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
-
   ngOnInit(): void {
     this.getAllCategories();
   }
@@ -55,5 +42,16 @@ export class CategorySelectComponent implements OnInit {
 
   resetProductList() {
     this.selectionService.selectCategory(null);
+  }
+
+  private getCategoryById(categoryId: string) {
+    this.categoryService.getCategoryById(categoryId).subscribe(
+      (response: CategoryInterface) => {
+        this.selectionService.selectCategory(response);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 }

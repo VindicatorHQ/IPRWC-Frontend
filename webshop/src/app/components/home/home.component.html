@@ -1,4 +1,8 @@
 <app-navbar></app-navbar>
-<app-category-select (selectedCategoryEvent)="addCategoryId($event)"></app-category-select>
 
-<app-product-overview [categoryId]="currentCategoryId"></app-product-overview>
+<article class="flex flex-wrap justify-evenly mt-16">
+  <app-product-search (searchedProductsEvent)="searchedProducts(products)"></app-product-search>
+  <app-category-select (selectedCategoryEvent)="addCategoryId($event)"></app-category-select>
+</article>
+
+<app-product-overview [categoryId]="currentCategoryId" [searchedProducts]="products"></app-product-overview>
