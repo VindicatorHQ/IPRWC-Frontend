@@ -49,7 +49,9 @@
       <div class="border-t mt-8">
         <div class="flex font-semibold justify-between py-6 text-sm uppercase">
           <span>Total cost</span>
-          <span>€{{productOrder[0].price}}</span>
+          <span *ngIf="productOrder.length">
+            €{{productOrder[0].price}}
+          </span>
         </div>
 
         <button (click)="checkOut()"

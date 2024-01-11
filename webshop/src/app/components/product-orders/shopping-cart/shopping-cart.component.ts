@@ -67,6 +67,11 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   checkOut(): void {
+    if (!this.productOrder.length) {
+      alert("You can't order a meme you can't see!");
+      return;
+    }
+
     this.shoppingCartService.createProductOrder({
       id: "",
       date: this.getCurrentDate(),
